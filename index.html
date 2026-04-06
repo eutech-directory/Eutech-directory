@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eutech.directory</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #1D9E75;
+      --accent-dark: #168a63;
+      --text: #111111;
+      --muted: #555555;
+      --border: #e0e0e0;
+      --bg: #ffffff;
+      --surface: #f7f9f8;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Layout ── */
+    main {
+      flex: 1;
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 72px 24px 48px;
+    }
+
+    /* ── Wordmark ── */
+    .wordmark {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    /* ── Hero ── */
+    h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .subheadline {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    /* ── Form ── */
+    form {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+      margin-bottom: 44px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    input[type="email"],
+    input[type="text"] {
+      width: 100%;
+      padding: 11px 14px;
+      font-size: 15px;
+      font-family: inherit;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input[type="email"]:focus,
+    input[type="text"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.12);
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      margin-top: 6px;
+      padding: 13px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+      letter-spacing: 0.01em;
+    }
+
+    button[type="submit"]:hover {
+      background: var(--accent-dark);
+    }
+
+    /* ── Trust points ── */
+    .trust {
+      list-style: none;
+      margin-bottom: 48px;
+    }
+
+    .trust li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .trust li:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .trust li::before {
+      content: "";
+      display: block;
+      flex-shrink: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 7px;
+    }
+
+    /* ── Context note ── */
+    .context-note {
+      font-size: 13px;
+      color: #999;
+      line-height: 1.65;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 20px 24px;
+      font-size: 12px;
+      color: #bbb;
+      border-top: 1px solid var(--border);
+    }
+
+    footer span {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ── Mobile tweaks ── */
+    @media (max-width: 480px) {
+      main { padding: 48px 20px 40px; }
+      form  { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+
+    <div class="wordmark">eutech.directory</div>
+
+    <h1>The EU tech directory that actually works</h1>
+
+    <p class="subheadline">
+      Verified European alternatives to US software.
+      Actively maintained. No duplicates. No US companies
+      pretending to be EU.
+    </p>
+
+    <form action="mailto:ricky.farmer254@gmail.com" method="POST" enctype="text/plain">
+      <div class="field">
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        >
+      </div>
+      <div class="field">
+        <label for="replace">What US tool are you looking to replace?</label>
+        <input
+          type="text"
+          id="replace"
+          name="replace"
+          placeholder="e.g. Notion, Mailchimp, Slack…"
+        >
+      </div>
+      <button type="submit">Join the waitlist</button>
+    </form>
+
+    <ul class="trust">
+      <li>Every listing verified as genuinely EU-based</li>
+      <li>GDPR jurisdiction confirmed for every tool</li>
+      <li>Updated weekly — not abandoned like the rest</li>
+    </ul>
+
+    <p class="context-note">
+      We're building this because european-alternatives.eu stopped responding in 2025.
+      Someone had to fix it.
+    </p>
+
+  </main>
+
+  <footer>
+    <span>eutech.directory</span> — built in public, updated weekly
+  </footer>
+
+</body>
+</html>
